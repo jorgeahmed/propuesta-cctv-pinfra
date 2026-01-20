@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Maestro de Migración CCTV | Pinfra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Custom Scrollbar for a sleek look */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+
+        /* Utility for chart containers to maintain aspect ratio logic via CSS if needed, 
+           though Chart.js maintainAspectRatio: false handles most. */
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .chart-wrapper {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-200 font-sans antialiased selection:bg-cyan-500 selection:text-white">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- HEADER -->
+        <header class="text-center mb-16">
+            <div
+                class="inline-block px-4 py-1 mb-4 rounded-full bg-cyan-900/30 border border-cyan-500/50 text-cyan-300 text-sm font-bold tracking-widest uppercase">
+                Enlace Sosténes Rocha
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
+                Plan Maestro de <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Migración
+                    CCTV</span>
+            </h1>
+            <p class="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-8">
+                Transición estratégica de infraestructura convencional a un ecosistema de <strong>Inteligencia
+                    Artificial Industrial</strong>. Optimizando la seguridad operativa y blindando la inversión de
+                Pinfra a largo plazo.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="propuesta.html"
+                    class="bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-3 rounded-full font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-cyan-900/20">
+                    Ver Propuesta Detallada 📝
+                </a>
+                <a href="#economics"
+                    class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-full font-bold border border-slate-700 transition flex items-center justify-center gap-2">
+                    Análisis Económico 📊
+                </a>
+            </div>
+        </header>
+
+        <!-- SECTION 1: COMPARATIVA TÉCNICA (THE "WHAT") -->
+        <section class="mb-20">
+            <div class="mb-8 border-l-4 border-cyan-500 pl-6">
+                <h2 class="text-3xl font-bold text-white mb-2">Salto Tecnológico</h2>
+                <p class="text-slate-400">
+                    No es solo un cambio de marca, es un cambio de arquitectura. Pasamos de detección de movimiento
+                    básica a análisis forense neuronal.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1: Capture -->
+                <div
+                    class="bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700 hover:border-cyan-500/50 transition duration-300">
+                    <div class="text-4xl mb-4">📷</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Captura IA</h3>
+                    <div class="text-xs font-bold text-rose-400 uppercase mb-1">Antes (Hikvision)</div>
+                    <p class="text-sm text-slate-400 mb-3 border-b border-slate-700 pb-3">Detección por software. Falsas
+                        alarmas por lluvia/sombras.</p>
+                    <div class="text-xs font-bold text-cyan-400 uppercase mb-1">Ahora (Hanwha)</div>
+                    <p class="text-sm text-slate-300"><strong>NPU Nativa.</strong> Clasificación de atributos (Ropa,
+                        Vehículo) >98% certeza.</p>
+                </div>
+
+                <!-- Card 2: Recording -->
+                <div
+                    class="bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700 hover:border-cyan-500/50 transition duration-300">
+                    <div class="text-4xl mb-4">💾</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Grabación</h3>
+                    <div class="text-xs font-bold text-rose-400 uppercase mb-1">Antes (NAS)</div>
+                    <p class="text-sm text-slate-400 mb-3 border-b border-slate-700 pb-3">Dependiente de red. Latencia
+                        alta en escritura.</p>
+                    <div class="text-xs font-bold text-cyan-400 uppercase mb-1">Ahora (Server IoT)</div>
+                    <p class="text-sm text-slate-300"><strong>Direct-to-Disk.</strong> Cero latencia. S.O.
+                        Ubuntu/Windows IoT blindado.</p>
+                </div>
+
+                <!-- Card 3: Software -->
+                <div
+                    class="bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700 hover:border-cyan-500/50 transition duration-300">
+                    <div class="text-4xl mb-4">🔐</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Gestión VMS</h3>
+                    <div class="text-xs font-bold text-rose-400 uppercase mb-1">Antes (Suscripción)</div>
+                    <p class="text-sm text-slate-400 mb-3 border-b border-slate-700 pb-3">Pagos anuales forzosos.
+                        Interfaz pesada.</p>
+                    <div class="text-xs font-bold text-cyan-400 uppercase mb-1">Ahora (Perpetuo)</div>
+                    <p class="text-sm text-slate-300"><strong>Wisenet WAVE.</strong> Licencia vitalicia. Búsquedas en
+                        milisegundos.</p>
+                </div>
+
+                <!-- Card 4: Display -->
+                <div
+                    class="bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700 hover:border-cyan-500/50 transition duration-300">
+                    <div class="text-4xl mb-4">🖥️</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Visualización</h3>
+                    <div class="text-xs font-bold text-rose-400 uppercase mb-1">Antes (Comercial)</div>
+                    <p class="text-sm text-slate-400 mb-3 border-b border-slate-700 pb-3">Panel TV estándar. Riesgo de
+                        "Burn-in" en 12 meses.</p>
+                    <div class="text-xs font-bold text-cyan-400 uppercase mb-1">Ahora (Industrial)</div>
+                    <p class="text-sm text-slate-300"><strong>Panel CCTV 24/7.</strong> Vida útil >50,000 horas
+                        continuas.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: ANÁLISIS ECONÓMICO (CAPEX) -->
+        <section id="economics" class="mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Text Context -->
+                <div class="lg:col-span-1">
+                    <div class="mb-6 border-l-4 border-amber-500 pl-6">
+                        <h2 class="text-3xl font-bold text-white mb-2">Inversión Inicial (CAPEX)</h2>
+                        <p class="text-slate-400 mb-4">
+                            Comparativa de costos "Llave en Mano". Hanwha requiere una inversión mayor debido a la
+                            calidad del hardware industrial y la infraestructura Cat 7A, pero elimina costos ocultos
+                            futuros.
+                        </p>
+                    </div>
+                    <div class="bg-slate-800 p-6 rounded-lg border border-slate-700">
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="text-rose-400 font-bold">Hikvision (Ref)</span>
+                            <span class="text-2xl font-bold text-white">$275,600</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-2 rounded-full mb-6">
+                            <div class="bg-rose-500 h-2 rounded-full" style="width: 66%"></div>
+                        </div>
+                        <div class="flex justify-between items-end mb-2">
+                            <span class="text-cyan-400 font-bold">Hanwha (Propuesta)</span>
+                            <span class="text-2xl font-bold text-white">$415,400</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-2 rounded-full">
+                            <div class="bg-cyan-500 h-2 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Container -->
+                <div class="lg:col-span-2 bg-slate-800 rounded-xl p-4 shadow-lg border border-slate-700">
+                    <h3 class="text-center text-slate-400 text-sm mb-4 uppercase tracking-widest">Desglose de Inversión
+                        por Categoría (MXN)</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="capexChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: ROI & TCO (THE "WHY") -->
+        <section class="mb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Chart Container -->
+                <div
+                    class="lg:col-span-2 bg-slate-800 rounded-xl p-4 shadow-lg border border-slate-700 order-2 lg:order-1">
+                    <h3 class="text-center text-slate-400 text-sm mb-4 uppercase tracking-widest">Costo Total de
+                        Propiedad (Acumulado 5 Años)</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="roiChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Text Context -->
+                <div class="lg:col-span-1 order-1 lg:order-2">
+                    <div class="mb-6 border-l-4 border-emerald-500 pl-6">
+                        <h2 class="text-3xl font-bold text-white mb-2">Rentabilidad a 5 Años</h2>
+                        <p class="text-slate-400 mb-6">
+                            Aunque la inversión inicial es mayor, Hanwha se convierte en la opción más económica a
+                            mediano plazo debido a la eliminación de OPEX.
+                        </p>
+                    </div>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">🚫</span>
+                            <div>
+                                <strong class="text-white block">Cero Renovaciones</strong>
+                                <span class="text-sm text-slate-400">Ahorro de $71,500 en licencias HikCentral que no se
+                                    pagan con WAVE.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">🛡️</span>
+                            <div>
+                                <strong class="text-white block">Garantía Total 5 Años</strong>
+                                <span class="text-sm text-slate-400">Elimina $101,000 estimados en recambios de hardware
+                                    fallido post-garantía.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-2xl mr-4">📉</span>
+                            <div>
+                                <strong class="text-emerald-400 block">Ahorro Neto > $100k</strong>
+                                <span class="text-sm text-slate-400">Al año 5, el sistema Hanwha cuesta
+                                    significativamente menos de operar.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: MIGRACIÓN ZERO-DOWNTIME (THE "HOW") -->
+        <section class="mb-20">
+            <div class="mb-10 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Estrategia de Ejecución "Zero-Downtime"</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Protocolo diseñado para garantizar la continuidad operativa de la caseta. Construimos el sistema
+                    nuevo en paralelo antes de apagar el viejo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="relative bg-slate-800 p-6 rounded-xl border-t-4 border-slate-500 shadow-lg">
+                    <div class="absolute -top-4 left-6 bg-slate-900 px-2 text-3xl">🏗️</div>
+                    <h3 class="mt-4 text-xl font-bold text-white">Fase 1: Paralelo</h3>
+                    <p class="text-xs text-slate-500 font-bold uppercase mb-2">Semana 1-2</p>
+                    <p class="text-slate-400 text-sm">
+                        Instalación de "Head-End" (Servidor + UPS) y tendido de cableado <strong>Cat 7A
+                            Blindado</strong> en ductos existentes sin tocar la red activa.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative bg-slate-800 p-6 rounded-xl border-t-4 border-amber-500 shadow-lg">
+                    <div class="absolute -top-4 left-6 bg-slate-900 px-2 text-3xl">⚡</div>
+                    <h3 class="mt-4 text-xl font-bold text-white">Fase 2: Hot-Swap</h3>
+                    <p class="text-xs text-amber-500 font-bold uppercase mb-2">Semana 3</p>
+                    <p class="text-slate-400 text-sm">
+                        Migración quirúrgica <strong>Carril por Carril</strong>. Se instala Hanwha, se valida video IA,
+                        y solo entonces se retira la cámara anterior.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative bg-slate-800 p-6 rounded-xl border-t-4 border-cyan-500 shadow-lg">
+                    <div class="absolute -top-4 left-6 bg-slate-900 px-2 text-3xl">🧠</div>
+                    <h3 class="mt-4 text-xl font-bold text-white">Fase 3: Tuning IA</h3>
+                    <p class="text-xs text-cyan-500 font-bold uppercase mb-2">Semana 4-5</p>
+                    <p class="text-slate-400 text-sm">
+                        Calibración fina de analíticos para ignorar árboles/sombras. Capacitación intensiva a operadores
+                        en búsquedas forenses.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: INFRAESTRUCTURA CRÍTICA -->
+        <section class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-2xl font-bold text-white">Infraestructura Mandatoria</h2>
+                    <p class="text-slate-400 text-sm">Dependencias críticas para la validez de la garantía.</p>
+                </div>
+                <div class="flex gap-2">
+                    <span
+                        class="px-3 py-1 bg-rose-500/20 text-rose-300 text-xs font-bold rounded-full border border-rose-500/30">EMI
+                        Protection</span>
+                    <span
+                        class="px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold rounded-full border border-amber-500/30">Power
+                        Safety</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                <div class="p-4 bg-slate-900 rounded-lg">
+                    <div class="text-2xl mb-2">🔌</div>
+                    <h4 class="font-bold text-white text-sm">Cat 7A S/FTP</h4>
+                    <p class="text-xs text-slate-500 mt-1">Blindaje contra motores de plumas.</p>
+                </div>
+                <div class="p-4 bg-slate-900 rounded-lg">
+                    <div class="text-2xl mb-2">🔋</div>
+                    <h4 class="font-bold text-white text-sm">UPS Online</h4>
+                    <p class="text-xs text-slate-500 mt-1">Doble conversión para energía limpia.</p>
+                </div>
+                <div class="p-4 bg-slate-900 rounded-lg">
+                    <div class="text-2xl mb-2">🌍</div>
+                    <h4 class="font-bold text-white text-sm">Tierras Físicas</h4>
+                    <p class="text-xs text-slate-500 mt-1">Impedancia < 5 Ohms requerida.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="mt-16 text-center text-slate-500 text-sm">
+            <p>© 2026 PINFRA - Enlace Sosténes Rocha. Todos los derechos reservados.</p>
+            <p class="mt-2">Desarrollado para la excelencia operativa en seguridad carretera.</p>
+        </footer>
+
+    </div>
+
+    <!-- SCRIPT SECTION -->
+    <script>
+        // --- 1. Helper Function for Label Wrapping (16 chars) ---
+        function wrapLabel(label) {
+            if (label.length <= 16) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length <= 16) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // --- 2. Common Chart Options (Responsiveness & Tooltips) ---
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: { color: '#94a3b8' } // Slate-400
+                },
+                tooltip: {
+                    backgroundColor: '#1e293b',
+                    titleColor: '#f1f5f9',
+                    bodyColor: '#cbd5e1',
+                    borderColor: '#334155',
+                    borderWidth: 1,
+                    callbacks: {
+                        title: function (tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: { color: '#64748b' },
+                    grid: { color: '#334155' }
+                },
+                x: {
+                    ticks: { color: '#64748b' },
+                    grid: { display: false }
+                }
+            }
+        };
+
+        // --- 3. CAPEX Chart (Stacked Bar) ---
+        const ctxCapex = document.getElementById('capexChart').getContext('2d');
+        const capexLabels = ['Hikvision (Referencia)', 'Hanwha (Propuesta)'];
+
+        new Chart(ctxCapex, {
+            type: 'bar',
+            data: {
+                labels: capexLabels.map(wrapLabel),
+                datasets: [
+                    {
+                        label: 'Equipamiento CCTV',
+                        data: [93600, 145600],
+                        backgroundColor: '#3b82f6', // Blue-500
+                        stack: 'Stack 0',
+                    },
+                    {
+                        label: 'Almacenamiento/Server',
+                        data: [71500, 145000],
+                        backgroundColor: '#6366f1', // Indigo-500
+                        stack: 'Stack 0',
+                    },
+                    {
+                        label: 'Visualización',
+                        data: [19500, 39000],
+                        backgroundColor: '#8b5cf6', // Violet-500
+                        stack: 'Stack 0',
+                    },
+                    {
+                        label: 'Licencias Software',
+                        data: [28600, 23400],
+                        backgroundColor: '#ec4899', // Pink-500
+                        stack: 'Stack 0',
+                    },
+                    {
+                        label: 'Infraestructura',
+                        data: [33150, 33150],
+                        backgroundColor: '#f59e0b', // Amber-500
+                        stack: 'Stack 0',
+                    },
+                    {
+                        label: 'Ingeniería',
+                        data: [29250, 29250],
+                        backgroundColor: '#10b981', // Emerald-500
+                        stack: 'Stack 0',
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                indexAxis: 'y', // Horizontal bars
+            }
+        });
+
+        // --- 4. ROI/TCO Chart (Line Chart) ---
+        const ctxRoi = document.getElementById('roiChart').getContext('2d');
+        const roiLabels = ['Año 0 (Inicio)', 'Año 1', 'Año 2', 'Año 3', 'Año 4', 'Año 5'];
+
+        new Chart(ctxRoi, {
+            type: 'line',
+            data: {
+                labels: roiLabels,
+                datasets: [
+                    {
+                        label: 'Hikvision (Costo Acumulado)',
+                        data: [275600, 347100, 418600, 519600, 620600, 692100],
+                        borderColor: '#fb7185', // Rose-400
+                        backgroundColor: '#fb7185',
+                        borderWidth: 3,
+                        pointRadius: 4,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Hanwha (Costo Acumulado)',
+                        data: [415400, 420400, 425400, 430400, 435400, 440400],
+                        borderColor: '#22d3ee', // Cyan-400
+                        backgroundColor: '#22d3ee',
+                        borderWidth: 3,
+                        pointRadius: 4,
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: commonOptions
+        });
+    </script>
+</body>
+
+</html>
